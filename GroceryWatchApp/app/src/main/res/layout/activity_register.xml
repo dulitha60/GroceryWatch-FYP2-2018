@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient"
+    tools:context="com.example.user.grocerywatchapp.RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/logo"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="#11000000"
+            android:textColor="@color/txtColor"
+            android:layout_marginTop="170dp"
+            android:hint="Name"
+            android:drawableLeft="@drawable/ic_action_user"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+            android:id="@+id/editemail"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editname"
+            android:background="#11000000"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/txtColor"
+            android:layout_marginTop="15dp"
+            android:hint="Email"
+            android:drawableLeft="@drawable/ic_action_name"
+            android:layout_centerHorizontal="true"
+            />
+
+
+        <EditText
+            android:id="@+id/editpassword"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editemail"
+            android:layout_marginTop="15dp"
+            android:background="#11000000"
+            android:drawableLeft="@drawable/ic_action_lock"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/txtColor" />
+
+        <EditText
+            android:id="@+id/editconfirm"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editpassword"
+            android:layout_marginTop="15dp"
+            android:background="#11000000"
+            android:drawableLeft="@drawable/ic_action_password"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/txtColor" />
+
+        <Button
+            android:id="@+id/btnregister"
+            android:layout_width="250dp"
+            android:layout_height="37dp"
+            android:text="@string/btnregister_label"
+            style="?android:textAppearanceSmall"
+            android:textSize="17sp"
+            android:layout_below="@+id/editconfirm"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/background_login"
+            android:textColor="@color/btntxtColor"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

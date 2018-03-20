@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#00B8D4</color>
+    <color name="headingColor">#00B8D4</color>
+    <color name="emailColor">#00B8D4</color>
+    <color name="editColor">#00B8D4</color>
+    <color name="btnColor">#00B8D4</color>
+    <color name="btntxtColor">#263238</color>
+    <color name="btnchange">#263238</color>
+    <color name="txtColor">#00B8D4</color>
+</resources>

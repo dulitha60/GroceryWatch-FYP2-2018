@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Grocery Watch</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="btnlogin_label">Login</string>
+    <string name="btnregister_label">Sign Up</string>
+    <string name="Signup">Not a member? Sign up now!</string>
+</resources>
