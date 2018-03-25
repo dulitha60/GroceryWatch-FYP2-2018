@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     builder = new AlertDialog.Builder(RegisterActivity.this);
                     builder.setTitle("Something went wrong!");
-                    builder.setMessage("Please fill out all the fields");
+                    builder.setMessage("Please fill out all the fields.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     builder = new AlertDialog.Builder(RegisterActivity.this);
                     builder.setTitle("Something went wrong!");
-                    builder.setMessage("Password fields are not matching");
+                    builder.setMessage("Password fields are not matching.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
@@ -60,6 +60,12 @@ public class RegisterActivity extends AppCompatActivity {
                     });
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
+                }
+                else{
+                    BackgroundTask backgroundTask = new BackgroundTask(RegisterActivity.this);
+                    backgroundTask.execute("register",name.getText().toString(), email.getText().toString(),pass.getText().toString());
+
+
                 }
 
             }
