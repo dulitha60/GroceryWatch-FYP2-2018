@@ -10,4 +10,10 @@
     <color name="btntxtColor">#263238</color>
     <color name="btnchange">#263238</color>
     <color name="txtColor">#00B8D4</color>
+    <color name="pirple">#00B8D4</color>
+    <color name="yellow">#00B8D4</color>
+    <color name="green">#00B8D4</color>
+    <color name="pink">#00B8D4</color>
+    <color name="lightgray">#ededed</color>
+    <color name="darkgray">#616161</color>
 </resources>
