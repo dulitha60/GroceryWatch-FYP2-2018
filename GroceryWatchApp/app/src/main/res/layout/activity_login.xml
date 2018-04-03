@@ -93,7 +93,6 @@
             android:textColor="@color/txtColor"
             android:textSize="15dp" />
 
-
     </RelativeLayout>
 
 
