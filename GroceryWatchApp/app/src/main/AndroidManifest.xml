@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".Drinks"></activity>
+        <activity android:name=".Drinks" />
+        <activity android:name=".DisplayListWeight"></activity>
     </application>
 
 </manifest>

@@ -20,47 +20,41 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by User on 3/27/2018.
- */
-
-public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
+public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
 
     Context ctx;
     Activity activity;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    ArrayList<drink> arrayList = new ArrayList<>();
+    RecyclerView.LayoutManager layManager;
+    ArrayList<Food> arrayList = new ArrayList<>();
 
-
-    public ListBackgroundTask(Context ctx){
+    public WeightListBackgroundTask(Context ctx){
         this.ctx = ctx;
         activity = (Activity)ctx;
-
     }
 
-    String json_string = "http://192.168.1.108/loginapp/drinks.php"; //check the ip address
+    String json_string = "http://192.168.1.108/loginapp/weight.php";
 
     @Override
     protected void onPreExecute() {
-        recyclerView = (RecyclerView)activity.findViewById(R.id.recyclerview);
-        layoutManager = new LinearLayoutManager(ctx);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView = (RecyclerView)activity.findViewById(R.id.recyclerview2);
+        layManager = new LinearLayoutManager(ctx);
+        recyclerView.setLayoutManager(layManager);
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter(arrayList);
+        adapter = new RecyclerAdapter_w(arrayList);
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
-
         try {
             URL url = new URL(json_string);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();
+
             String line;
 
             while ((line=bufferedReader.readLine())!=null){
@@ -72,12 +66,14 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
             String json_string = stringBuilder.toString().trim();
             JSONObject jsonObject = new JSONObject(json_string);
             JSONArray jsonArray = jsonObject.getJSONArray("server_response");
+
             int count = 0;
+
             while(count<jsonArray.length()){
                 JSONObject JO = jsonArray.getJSONObject(count);
                 count++;
-                drink dr = new drink(JO.getInt("id"),JO.getString("time"),JO.getInt("can"));
-                publishProgress(dr);
+                Food food = new Food(JO.getInt("id"),JO.getString("time"),JO.getDouble("weight"));
+                publishProgress(food);
 
             }
 
@@ -91,13 +87,13 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
         return null;
-
-
     }
 
     @Override
-    protected void onProgressUpdate(drink... values) {
+    protected void onProgressUpdate(Food... values) {
         arrayList.add(values[0]);
         adapter.notifyDataSetChanged();
     }

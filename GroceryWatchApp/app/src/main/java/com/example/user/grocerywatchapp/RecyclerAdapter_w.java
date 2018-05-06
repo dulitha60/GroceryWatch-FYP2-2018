@@ -7,53 +7,45 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.jar.Attributes;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>{
+public class RecyclerAdapter_w extends RecyclerView.Adapter<RecyclerAdapter_w.RecyclerViewHolder>{
+
     private static final int TYPE_HEAD = 0;
     private static final int TYPE_LIST = 1;
 
-    ArrayList<drink> arrayList = new ArrayList<>();
+    ArrayList<Food> arrayList = new ArrayList<>();
 
-    public RecyclerAdapter(ArrayList<drink> arrayList){
+    public RecyclerAdapter_w(ArrayList<Food> arrayList){
         this.arrayList = arrayList;
 
     }
 
-
-
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        if (viewType==TYPE_HEAD){
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_layout,parent,false);
+        if(viewType==TYPE_HEAD){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.headerw_layout,parent,false);
             RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view,viewType);
             return recyclerViewHolder;
-
         }
-        else if(viewType==TYPE_LIST){
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout,parent,false);
+        else if (viewType==TYPE_LIST){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.roww_layout,parent,false);
             RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view,viewType);
-
             return recyclerViewHolder;
-
         }
         return null;
-
     }
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        if (holder.viewType==TYPE_LIST){
 
-            drink drink = arrayList.get(position-1);
-            holder.Id.setText(Integer.toString(drink.getId()));
-            holder.Time.setText(drink.getTime());
-            holder.Cans.setText(Integer.toString(drink.getCan()));
-
+        if (holder.viewType==TYPE_LIST)
+        {
+            Food food = arrayList.get(position-1);
+            holder.Id.setText(Integer.toString(food.getId()));
+            holder.Time.setText(food.getTime());
+            holder.Weight.setText(String.valueOf(food.getWeight()));
         }
-
-
     }
 
     @Override
@@ -62,26 +54,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     }
 
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder{
-        TextView Id, Time, Cans;
-        int viewType;
 
+        TextView Id, Time, Weight;
+        int viewType;
         public RecyclerViewHolder(View view, int viewType){
 
             super(view);
-            if(viewType==TYPE_LIST){
-                Id = (TextView)view.findViewById(R.id.id);
-                Time = (TextView)view.findViewById(R.id.time);
-                Cans = (TextView)view.findViewById(R.id.cans);
+            if (viewType==TYPE_LIST){
+                Id = (TextView)view.findViewById(R.id.id_w);
+                Time = (TextView)view.findViewById(R.id.time_w);
+                Weight = (TextView)view.findViewById(R.id.weight_w);
                 this.viewType = TYPE_LIST;
-
             }
-            else if(viewType == TYPE_HEAD){
+            else if(viewType == TYPE_HEAD)
+            {
                 this.viewType = TYPE_HEAD;
             }
 
 
-        }
 
+        }
     }
 
     @Override

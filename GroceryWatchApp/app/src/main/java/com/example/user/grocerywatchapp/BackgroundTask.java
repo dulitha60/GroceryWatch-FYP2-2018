@@ -34,8 +34,8 @@ import java.net.URLEncoder;
 
 public class BackgroundTask extends AsyncTask<String,Void,String> {
 
-    String register_url = "http://172.20.10.14/loginapp/register.php";
-    String login_url = "http://172.20.10.14/loginapp/login.php";
+    String register_url = "http://192.168.1.108/loginapp/register.php";
+    String login_url = "http://192.168.1.108/loginapp/login.php";
     Context ctx;
     ProgressDialog progressDialog;
     Activity activity;

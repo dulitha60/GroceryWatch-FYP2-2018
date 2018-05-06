@@ -16,6 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton logout;
     AlertDialog.Builder builder;
     CardView drinks;
+    CardView weights;
 
 
     @Override
@@ -25,6 +26,15 @@ public class HomeActivity extends AppCompatActivity {
 
         logout = (ImageButton) findViewById(R.id.logout);
         drinks = (CardView) findViewById(R.id.drinks);
+        weights = (CardView) findViewById(R.id.weight);
+
+        weights.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,DisplayListWeight.class));
+            }
+        });
+
 
         drinks.setOnClickListener(new View.OnClickListener() {
             @Override
