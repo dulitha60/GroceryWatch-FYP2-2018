@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class RecyclerAdapter_w extends RecyclerView.Adapter<RecyclerAdapter_w.RecyclerViewHolder>{
-
     private static final int TYPE_HEAD = 0;
     private static final int TYPE_LIST = 1;
 
@@ -17,7 +15,6 @@ public class RecyclerAdapter_w extends RecyclerView.Adapter<RecyclerAdapter_w.Re
 
     public RecyclerAdapter_w(ArrayList<Food> arrayList){
         this.arrayList = arrayList;
-
     }
 
     @Override

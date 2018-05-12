@@ -1,6 +1,7 @@
 package com.example.user.grocerywatchapp;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,6 +32,7 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
+    ProgressDialog progressDialog;
     ArrayList<drink> arrayList = new ArrayList<>();
 
 
@@ -40,7 +42,7 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
 
     }
 
-    String json_string = "http://192.168.1.108/loginapp/drinks.php"; //check the ip address
+    String json_string = "https://androidappgrocerywatch.000webhostapp.com/loginapp/drinks.php";
 
     @Override
     protected void onPreExecute() {
@@ -50,6 +52,12 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
         recyclerView.setHasFixedSize(true);
         adapter = new RecyclerAdapter(arrayList);
         recyclerView.setAdapter(adapter);
+        progressDialog = new ProgressDialog(ctx);
+        progressDialog.setTitle("Please Wait..");
+        progressDialog.setMessage("List is loading..");
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
     }
 
     @Override
@@ -78,6 +86,8 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
                 count++;
                 drink dr = new drink(JO.getInt("id"),JO.getString("time"),JO.getInt("can"));
                 publishProgress(dr);
+                Thread.sleep(1000);
+
 
             }
 
@@ -89,6 +99,8 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return null;
@@ -104,6 +116,6 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+        progressDialog.dismiss();
     }
 }

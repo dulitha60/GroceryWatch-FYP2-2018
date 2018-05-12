@@ -24,6 +24,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+
         logout = (ImageButton) findViewById(R.id.logout);
         drinks = (CardView) findViewById(R.id.drinks);
         weights = (CardView) findViewById(R.id.weight);

@@ -1,6 +1,7 @@
 package com.example.user.grocerywatchapp;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,6 +28,7 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layManager;
+    ProgressDialog progressDialog;
     ArrayList<Food> arrayList = new ArrayList<>();
 
     public WeightListBackgroundTask(Context ctx){
@@ -34,7 +36,7 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
         activity = (Activity)ctx;
     }
 
-    String json_string = "http://192.168.1.108/loginapp/weight.php";
+    String json_string = "https://androidappgrocerywatch.000webhostapp.com/loginapp/weight.php";
 
     @Override
     protected void onPreExecute() {
@@ -44,6 +46,12 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
         recyclerView.setHasFixedSize(true);
         adapter = new RecyclerAdapter_w(arrayList);
         recyclerView.setAdapter(adapter);
+        progressDialog = new ProgressDialog(ctx);
+        progressDialog.setTitle("Please Wait..");
+        progressDialog.setMessage("List is loading..");
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
     }
 
     @Override
@@ -74,6 +82,7 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
                 count++;
                 Food food = new Food(JO.getInt("id"),JO.getString("time"),JO.getDouble("weight"));
                 publishProgress(food);
+                Thread.sleep(1000);
 
             }
 
@@ -85,6 +94,8 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -100,6 +111,6 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+        progressDialog.dismiss();
     }
 }
