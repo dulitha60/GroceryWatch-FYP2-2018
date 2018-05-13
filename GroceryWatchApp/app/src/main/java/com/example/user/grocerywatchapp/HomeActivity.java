@@ -3,6 +3,7 @@ package com.example.user.grocerywatchapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -17,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     AlertDialog.Builder builder;
     CardView drinks;
     CardView weights;
+    CardView shop;
 
 
     @Override
@@ -24,11 +26,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
         logout = (ImageButton) findViewById(R.id.logout);
         drinks = (CardView) findViewById(R.id.drinks);
         weights = (CardView) findViewById(R.id.weight);
+        shop = (CardView)findViewById(R.id.shop);
 
         weights.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this,Drinks.class));
+            }
+        });
+
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.swinburne.edu.my/"));
+                startActivity(intent);
             }
         });
 
@@ -68,6 +77,12 @@ public class HomeActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+
+
+
+
+
 
 
 
