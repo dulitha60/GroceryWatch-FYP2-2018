@@ -42,7 +42,7 @@ public class ListBackgroundTask extends AsyncTask<Void, drink, Void> {
 
     }
 
-    String json_string = "https://androidappgrocerywatch.000webhostapp.com/loginapp/drinks.php";
+    String json_string = "https://smartstorage.000webhostapp.com/loginapp/drinks.php";
 
     @Override
     protected void onPreExecute() {

@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class LoginActivity extends AppCompatActivity {
 
     TextView txt_signup;
-    TextView email,pass;
+    TextView productid,pass;
     Button login_button;
     AlertDialog.Builder builder;
 
@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = (TextView)findViewById(R.id.editemail);
+        productid = (TextView)findViewById(R.id.editproductid);
         pass = (TextView)findViewById(R.id.editpassword);
         txt_signup = (TextView)findViewById(R.id.txtSignup);
         login_button = (Button)findViewById(R.id.btnlogin);
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(email.getText().toString().equals("")||pass.getText().toString().equals(""))
+                if(productid.getText().toString().equals("")||pass.getText().toString().equals(""))
                 {
                     builder = new AlertDialog.Builder(LoginActivity.this);
                     builder.setTitle("Something went wrong!");
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                     alertDialog.show();
                 }else{
                     BackgroundTask backgroundTask = new BackgroundTask(LoginActivity.this);
-                    backgroundTask.execute("login",email.getText().toString(),pass.getText().toString());
+                    backgroundTask.execute("login",productid.getText().toString(),pass.getText().toString());
                 }
             }
         });

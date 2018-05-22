@@ -36,7 +36,7 @@ public class WeightListBackgroundTask extends AsyncTask<Void, Food, Void> {
         activity = (Activity)ctx;
     }
 
-    String json_string = "https://androidappgrocerywatch.000webhostapp.com/loginapp/weight.php";
+    String json_string = "https://smartstorage.000webhostapp.com/loginapp/weight.php";
 
     @Override
     protected void onPreExecute() {

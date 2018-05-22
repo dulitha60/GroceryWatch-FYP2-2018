@@ -34,8 +34,8 @@ import java.net.URLEncoder;
 
 public class BackgroundTask extends AsyncTask<String,Void,String> {
 
-    String register_url = "https://androidappgrocerywatch.000webhostapp.com/loginapp/register.php";
-    String login_url = "https://androidappgrocerywatch.000webhostapp.com/loginapp/login.php";
+    String register_url = "https://smartstorage.000webhostapp.com/loginapp/register.php";
+    String login_url = "https://smartstorage.000webhostapp.com/loginapp/login.php";
     Context ctx;
     ProgressDialog progressDialog;
     Activity activity;
@@ -124,12 +124,12 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
 
-                String email, pass;
+                String productid, pass;
 
-                email = params[1];
+                productid = params[1];
                 pass = params[2];
 
-                String data = URLEncoder.encode("email", "UTF-8")+"="+URLEncoder.encode(email,"UTF-8")+"&"+
+                String data = URLEncoder.encode("productid", "UTF-8")+"="+URLEncoder.encode(productid,"UTF-8")+"&"+
                         URLEncoder.encode("pass", "UTF-8")+"="+URLEncoder.encode(pass,"UTF-8");
 
                 bufferedWriter.write(data); //Writing the data using bufferedWriter

@@ -33,14 +33,13 @@
         </RelativeLayout>
 
         <EditText
-            android:id="@+id/editemail"
+            android:id="@+id/editproductid"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:background="#11000000"
-            android:inputType="textEmailAddress"
             android:textColor="@color/txtColor"
             android:layout_marginTop="200dp"
-            android:hint="Email"
+            android:hint="Product ID"
             android:drawableLeft="@drawable/ic_action_name"
             android:layout_centerHorizontal="true"
             />
@@ -50,7 +49,7 @@
             android:id="@+id/editpassword"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/editemail"
+            android:layout_below="@+id/editproductid"
             android:layout_marginTop="15dp"
             android:background="#11000000"
             android:drawableLeft="@drawable/ic_action_password"

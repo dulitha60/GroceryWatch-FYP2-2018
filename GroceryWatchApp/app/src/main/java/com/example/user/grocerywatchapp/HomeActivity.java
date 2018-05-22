@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.swinburne.edu.my/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://smartgrocery.000webhostapp.com/"));
                 startActivity(intent);
             }
         });
