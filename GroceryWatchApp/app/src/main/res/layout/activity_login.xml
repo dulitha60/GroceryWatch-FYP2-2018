@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context="com.example.user.grocerywatchapp.LoginActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/logo"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/editproductid"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="#11000000"
+            android:textColor="@color/txtColor"
+            android:layout_marginTop="200dp"
+            android:hint="Product ID"
+            android:drawableLeft="@drawable/ic_action_name"
+            android:layout_centerHorizontal="true"
+            />
+
+
+        <EditText
+            android:id="@+id/editpassword"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editproductid"
+            android:layout_marginTop="15dp"
+            android:background="#11000000"
+            android:drawableLeft="@drawable/ic_action_password"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/txtColor" />
+
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="250dp"
+            android:layout_height="37dp"
+            android:text="@string/btnlogin_label"
+            style="?android:textAppearanceSmall"
+            android:textSize="17sp"
+            android:layout_below="@+id/editpassword"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/background_login"
+            android:textColor="@color/btntxtColor"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp"
+        >
+
+        <TextView
+            android:id="@+id/txtSignup"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/Signup"
+            android:textColor="@color/txtColor"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
